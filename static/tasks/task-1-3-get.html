@@ -5,175 +5,91 @@
       <br />
 
       <div class="accordion" id="shippingMethodsAccordion">
+        <!-- Task 1 -->
         <div class="accordion-item">
           <h2 class="accordion-header" id="task1">
-            <button
-              class="accordion-button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapse1"
-              aria-expanded="true"
-              aria-controls="collapse1"
-            >
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
               1. A customer wants to see all shipping options.
             </button>
           </h2>
-          <div
-            id="collapse1"
-            class="accordion-collapse collapse show"
-            aria-labelledby="task1"
-            data-bs-parent="#shippingMethodsAccordion"
-          >
+          <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="task1" data-bs-parent="#shippingMethodsAccordion">
             <div class="accordion-body">
-              <div class="d-flex justify-content-between">
-                <span><code>GET /shipping-methods/</code></span>
-                <button class="btn btn-primary" onclick="getShippingMethods()">
-                  Get Shipping Methods
-                </button>
+              <div class="d-flex justify-content-between align-items-center">
+                <span><code>GET /shipping-methods</code></span>
+                <button class="btn btn-primary ms-3" onclick="getShippingMethods()">Get Shipping Methods</button>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- Task 2 -->
         <div class="accordion-item">
           <h2 class="accordion-header" id="task2">
-            <button
-              class="accordion-button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapse2"
-              aria-expanded="false"
-              aria-controls="collapse2"
-            >
-              2. We need to display some details, including rates, for a chosen
-              shipping method.
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+              2. Display details, including rates, for a chosen shipping method.
             </button>
           </h2>
-          <div
-            id="collapse2"
-            class="accordion-collapse collapse"
-            aria-labelledby="task2"
-            data-bs-parent="#shippingMethodsAccordion"
-          >
+          <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="task2" data-bs-parent="#shippingMethodsAccordion">
             <div class="accordion-body">
-              <div class="d-flex justify-content-between">
-                <span><code>GET /shipping-methods/key?</code></span>
-                <div>
-                  <input
-                    type="text"
-                    class="form-control mb-2"
-                    id="key"
-                    placeholder="Enter the key..."
-                  />
-                  <button class="btn btn-primary" onclick="getShippingMethod()">
-                    Get
-                  </button>
-                </div>
+              <span><code>GET /shipping-methods/{key}</code></span>
+              <div class="input-group mt-2">
+                <input type="text" class="form-control" id="key" placeholder="Enter the key..." />
+                <button class="btn btn-primary" onclick="getShippingMethod()">Get</button>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- Task 3 -->
         <div class="accordion-item">
           <h2 class="accordion-header" id="task3">
-            <button
-              class="accordion-button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapse3"
-              aria-expanded="false"
-              aria-controls="collapse3"
-            >
-              3. A customer should only see shipping methods that ship to their
-              location.
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+              3. A customer should only see shipping methods that ship to their location.
             </button>
           </h2>
-          <div
-            id="collapse3"
-            class="accordion-collapse collapse"
-            aria-labelledby="task3"
-            data-bs-parent="#shippingMethodsAccordion"
-          >
+          <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="task3" data-bs-parent="#shippingMethodsAccordion">
             <div class="accordion-body">
-              <div class="d-flex justify-content-between">
-                <span><code>GET /shipping-methods?countryCode</code></span>
-                <div>
-                  <input
-                    type="text"
-                    class="form-control mb-2"
-                    id="countryCode"
-                    placeholder="Enter two-digit country code..."
-                  />
-                  <button
-                    class="btn btn-primary"
-                    onclick="getShippingMethodsByCountry()"
-                  >
-                    Get Shipping Options
-                  </button>
-                </div>
+              <span><code>GET /shipping-methods?countryCode=...</code></span>
+              <div class="input-group mt-2">
+                <input type="text" class="form-control" id="countryCode" placeholder="Enter two-digit country code..." />
+                <button class="btn btn-primary" onclick="getShippingMethodsByCountry()">Get Shipping Options</button>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- Task 4 -->
         <div class="accordion-item">
           <h2 class="accordion-header" id="task4">
-            <button
-              class="accordion-button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapse4"
-              aria-expanded="false"
-              aria-controls="collapse4"
-            >
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
               4. A customer can check if a shipping method exists.
             </button>
           </h2>
-          <div
-            id="collapse4"
-            class="accordion-collapse collapse"
-            aria-labelledby="task4"
-            data-bs-parent="#shippingMethodsAccordion"
-          >
+          <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="task4" data-bs-parent="#shippingMethodsAccordion">
             <div class="accordion-body">
-              <div class="d-flex justify-content-between">
-                <span><code>HEAD /shipping-methods/key?</code></span>
-                <div>
-                  <input
-                    type="text"
-                    class="form-control mb-2"
-                    id="keyToCheck"
-                    placeholder="Enter the key..."
-                  />
-                  <button
-                    class="btn btn-primary"
-                    onclick="checkShippingMethodExistence()"
-                  >
-                    Check Existence
-                  </button>
-                </div>
+              <span><code>HEAD /shipping-methods/{key}</code></span>
+              <div class="input-group mt-2">
+                <input type="text" class="form-control" id="keyToCheck" placeholder="Enter the key..." />
+                <button class="btn btn-primary" onclick="checkShippingMethodExistence()">Check Existence</button>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <br />
-      <main class="d-flex flex-nowrap">
-        <div class="row h-100 w-100">
-          <div class="d-flex col-md-12">
-            <div class="container col-md-8">
-              <pre
-                id="json-response"
-                class="mt-1 flex-fill d-flex overflow-auto"
-              ></pre>
-            </div>
-            <div class="container col-md-4">
-              <div id="results"></div>
-            </div>
-          </div>
+      <!-- Results Section -->
+      <div class="row mt-4">
+        <div class="col-md-8">
+          <pre id="json-response" class="bg-light p-3 border rounded" style="max-height: 300px; overflow: auto;"></pre>
         </div>
-      </main>
+        <div class="col-md-4">
+          <div id="results"></div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
 
 <script>
   function getShippingMethods() {

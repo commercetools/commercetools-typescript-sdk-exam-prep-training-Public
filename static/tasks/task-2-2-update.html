@@ -4,6 +4,8 @@
       <h2>Cart</h2>
       <br />
       <div class="accordion" id="cartAccordion">
+
+        <!-- GET CART -->
         <div class="accordion-item">
           <h2 class="accordion-header" id="form">
             <button
@@ -19,12 +21,12 @@
           </h2>
           <div
             id="collapse-form"
-            class="accordion-collapse show"
+            class="accordion-collapse collapse show"
             aria-labelledby="form"
             data-bs-parent="#cartAccordion"
           >
             <div class="accordion-body">
-              <div class="d-flex justify-content-between">
+              <div class="d-flex justify-content-between align-items-center">
                 <span><code>GET /in-store/storeKey/carts/id</code></span>
                 <button class="btn btn-primary" onclick="getCart()">
                   Get Cart
@@ -33,18 +35,17 @@
             </div>
           </div>
         </div>
-        
-        </div>
+
+        <!-- UPDATE SHIPPING ADDRESS -->
         <div class="accordion-item">
           <h2 class="accordion-header" id="task2">
             <button
-              class="accordion-button"
+              class="accordion-button collapsed"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapse2"
               aria-expanded="false"
               aria-controls="collapse2"
-              id="shipping-accordion-button"
             >
               A customer wants to update the shipping address.
             </button>
@@ -56,144 +57,91 @@
             data-bs-parent="#cartAccordion"
           >
             <div class="accordion-body">
-              <span
-                >UPDATE CART -
-                <code
-                  >POST /in-store/storeKey/carts/id/shipping-address</code
-                ></span
-              ><br /><br />
-              <div id="new-address-form">
-                <div class="d-flex flex-column justify-content-between">
-                  <div class="d-flex flex-row mt-4">
-                    <div class="col-md-4 mb-2">
-                      <label for="firstName" class="form-label"
-                        >First Name</label
-                      >
-                    </div>
-                    <div class="col-md-8 mb-2">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="firstName"
-                        name="firstName"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div class="d-flex flex-row">
-                    <div class="col-md-4 mb-2">
-                      <label for="lastName" class="form-label">Last Name</label>
-                    </div>
-                    <div class="col-md-8 mb-2">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="lastName"
-                        name="lastName"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div class="d-flex flex-row">
-                    <div class="col-md-4 mb-2">
-                      <label for="streetNumber" class="form-label"
-                        >Street Number</label
-                      >
-                    </div>
-                    <div class="col-md-8 mb-2">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="streetNumber"
-                        name="streetNumber"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div class="d-flex flex-row">
-                    <div class="col-md-4 mb-2">
-                      <label for="streetName" class="form-label"
-                        >Street Name</label
-                      >
-                    </div>
-                    <div class="col-md-8 mb-2">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="streetName"
-                        name="streetName"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div class="d-flex flex-row">
-                    <div class="col-md-4 mb-2">
-                      <label for="region" class="form-label">State</label>
-                    </div>
-                    <div class="col-md-8 mb-2">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="region"
-                        name="region"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div class="d-flex flex-row">
-                    <div class="col-md-4 mb-2">
-                      <label for="city" class="form-label">City</label>
-                    </div>
-                    <div class="col-md-8 mb-2">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="city"
-                        name="city"
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div class="d-flex flex-row">
-                    <div class="col-md-4 mb-2">
-                      <label for="country" class="form-label">Country</label>
-                    </div>
-                    <div class="col-md-8 mb-2">
-                      <select
-                        class="form-select"
-                        id="country"
-                        name="country"
-                        required
-                      ></select>
-                    </div>
-                  </div>
+              <span>
+                UPDATE CART -
+                <code>POST /in-store/storeKey/carts/id/shipping-address</code>
+              </span><br /><br />
 
-                  <div class="d-flex flex-row">
-                    <div class="col-md-4 mb-2">
-                      <label for="email" class="form-label">Email</label>
-                    </div>
-                    <div class="col-md-8 mb-2">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="email"
-                        name="email"
-                        required
-                      />
-                    </div>
+              <form id="new-address-form">
+                <div class="row mb-2">
+                  <div class="col-md-4">
+                    <label for="firstName" class="form-label">First Name</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" id="firstName" name="firstName" required />
                   </div>
                 </div>
-              </div>
-              <button class="btn btn-primary" onclick="updateShippingAddress()">
-                Add Shipping Address
-              </button>
+                <div class="row mb-2">
+                  <div class="col-md-4">
+                    <label for="lastName" class="form-label">Last Name</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" id="lastName" name="lastName" required />
+                  </div>
+                </div>
+                <div class="row mb-2">
+                  <div class="col-md-4">
+                    <label for="streetNumber" class="form-label">Street Number</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" id="streetNumber" name="streetNumber" required />
+                  </div>
+                </div>
+                <div class="row mb-2">
+                  <div class="col-md-4">
+                    <label for="streetName" class="form-label">Street Name</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" id="streetName" name="streetName" required />
+                  </div>
+                </div>
+                <div class="row mb-2">
+                  <div class="col-md-4">
+                    <label for="region" class="form-label">State</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" id="region" name="region" required />
+                  </div>
+                </div>
+                <div class="row mb-2">
+                  <div class="col-md-4">
+                    <label for="city" class="form-label">City</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input type="text" class="form-control" id="city" name="city" required />
+                  </div>
+                </div>
+                <div class="row mb-2">
+                  <div class="col-md-4">
+                    <label for="country" class="form-label">Country</label>
+                  </div>
+                  <div class="col-md-8">
+                    <select class="form-select" id="country" name="country" required>
+                      <!-- Dynamically populated -->
+                    </select>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-md-4">
+                    <label for="email" class="form-label">Email</label>
+                  </div>
+                  <div class="col-md-8">
+                    <input type="email" class="form-control" id="email" name="email" required />
+                  </div>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="updateShippingAddress()">
+                  Add Shipping Address
+                </button>
+              </form>
             </div>
           </div>
         </div>
+
+        <!-- CHOOSE SHIPPING METHOD -->
         <div class="accordion-item">
           <h2 class="accordion-header" id="task3">
             <button
-              class="accordion-button"
+              class="accordion-button collapsed"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapse3"
@@ -210,20 +158,18 @@
             data-bs-parent="#cartAccordion"
           >
             <div class="accordion-body">
-              <span
-                >GET SHIPPING METHODS -
-                <code
-                  >GET /in-store/storeKey/shipping-methods/matching-cart</code
-                >
-              </span>
-              <br /><br />
-              <span
-                >UPDATE CART -
-                <code
-                  >POST /in-store/storeKey/carts/{cartId}/shipping-methods</code
-                > </span
-              ><br /><br />
-              <div id="shippingMethodsContainer" class="mb-3"></div>
+              <span>
+                GET SHIPPING METHODS -
+                <code>GET /in-store/storeKey/shipping-methods/matching-cart</code>
+              </span><br /><br />
+              <span>
+                UPDATE CART -
+                <code>POST /in-store/storeKey/carts/{cartId}/shipping-methods</code>
+              </span><br /><br />
+
+              <div id="shippingMethodsContainer" class="mb-3">
+                <!-- Shipping method radio buttons will go here -->
+              </div>
 
               <button class="btn btn-primary" onclick="setShippingMethod()">
                 Set Selected Shipping Method
@@ -233,7 +179,8 @@
         </div>
       </div>
 
-      <br />
+      <!-- JSON Response -->
+            <br />
       <main class="d-flex flex-nowrap">
         <div class="row h-100 w-100">
           <div class="d-flex col-md-12">
@@ -249,6 +196,7 @@
     </div>
   </div>
 </div>
+
 
 <script>
   function populateCountries() {

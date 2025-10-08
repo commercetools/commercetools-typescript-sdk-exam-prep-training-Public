@@ -3,6 +3,8 @@
     <div class="col-md-9">
       <h2>Place Order</h2>
       <br />
+
+      <!-- Accordion Start -->
       <div class="accordion" id="cartAccordion">
         <div class="accordion-item">
           <h2 class="accordion-header" id="task1">
@@ -14,28 +16,26 @@
               aria-expanded="true"
               aria-controls="collapse1"
             >
-              A customer should have the option to see cart summary and place
-              order.
+              A customer should have the option to see cart summary and place order.
             </button>
           </h2>
           <div
             id="collapse1"
-            class="accordion-collapse show"
+            class="accordion-collapse collapse show"
             aria-labelledby="task1"
             data-bs-parent="#cartAccordion"
           >
             <div class="accordion-body">
-              <span>GET CART - <code>GET /carts/id</code></span
-              ><br /><br />
-              <div class="d-flex mb-3">
+              <p><strong>GET CART</strong> - <code>GET /carts/id</code></p>
+              <div class="mb-4">
                 <button class="btn btn-primary" onclick="showCartSummary()">
-                  Review Cart</button
-                ><br />
+                  Review Cart
+                </button>
               </div>
-              <span>CREATE ORDER - <code>POST /orders</code></span
-              ><br /><br />
-              <div class="d-flex mb-3">
-                <button class="btn btn-primary" onclick="createOrder()">
+
+              <p><strong>CREATE ORDER</strong> - <code>POST /orders</code></p>
+              <div class="mb-3">
+                <button class="btn btn-success" onclick="createOrder()">
                   Place Order
                 </button>
               </div>
@@ -44,33 +44,33 @@
         </div>
       </div>
 
-      <br />
-      <div class="col-12 col-md-10">
-        <div id="cart-summary">
-          <div id="cart-version" class="d-none"><br /></div>
-          <div id="cart-id"><br /></div>
-          <div><strong id="customer-email"></strong> <br /></div>
-          <ul id="cart-items"></ul>
-          <div id="total-price"></div>
-          <div id="tax-details"></div>
-          <div id="shipping-details"></div>
+      <!-- Cart Summary Output -->
+      <div class="col-12 col-md-10 mt-4">
+        <div id="cart-summary" class="border rounded p-3">
+          <div id="cart-version" class="d-none mb-2"></div>
+          <div id="cart-id" class="mb-2"></div>
+          <div class="mb-2"><strong id="customer-email"></strong></div>
+
+          <ul id="cart-items" class="list-group list-group-flush mb-3"></ul>
+
+          <div id="total-price" class="fw-bold mb-1"></div>
+          <div id="tax-details" class="text-muted mb-1"></div>
+          <div id="shipping-details" class="text-muted"></div>
         </div>
       </div>
-      <main class="d-flex flex-nowrap">
-        <div class="row h-100 w-100">
-          <div class="d-flex col-md-12">
-            <div class="container col-md-12">
-              <pre
-                id="json-response"
-                class="mt-1 flex-fill d-flex overflow-auto"
-              ></pre>
-            </div>
+
+      <!-- JSON Response Display -->
+      <main class="d-flex flex-nowrap mt-4">
+        <div class="row w-100">
+          <div class="col-md-12">
+            <pre id="json-response" class="flex-fill p-3 rounded overflow-auto" style="max-height: 300px;"></pre>
           </div>
         </div>
       </main>
     </div>
   </div>
 </div>
+
 
 <script>
   function createOrder() {

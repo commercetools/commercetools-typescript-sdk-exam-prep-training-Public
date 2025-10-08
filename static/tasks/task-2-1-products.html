@@ -3,6 +3,7 @@
     <div class="col-md-9">
       <h2>Cart</h2>
 
+      <!-- Accordion: View Products and Create Cart -->
       <div class="accordion" id="productsFormAccordion">
         <div class="accordion-item">
           <h2 class="accordion-header" id="form">
@@ -19,60 +20,53 @@
           </h2>
           <div
             id="collapse-form"
-            class="accordion-collapse show"
+            class="accordion-collapse collapse show"
             aria-labelledby="form"
             data-bs-parent="#productsFormAccordion"
           >
             <div class="accordion-body">
-              <span
-                >FETCH PRODUCTS -
-                <code>GET /products?keyword=&storeKey=</code></span
-              ><br /><br />
-              <span>CREATE CART - <code>POST /carts</code></span
-              ><br /><br />
-              <div class="d-flex flex-column justify-content-between">
-                <div>
-                  <label for="keyword" class="form-label">Search Keyword</label>
-                  <input
-                    type="text"
-                    class="form-control mb-4"
-                    id="keyword"
-                    placeholder="Enter the search term"
-                  />
-                </div>
-                <div class="d-flex">
-                  <input
-                    type="checkbox"
-                    class="form-check-input mb-4"
-                    id="includeFacets"
-                  />
-                  <label class="form-check-label mb-4" for="includeFacets"
-                    >Include Facets</label
-                  >
-                </div>
+              <span>FETCH PRODUCTS - <code>GET /products?keyword=&storeKey=</code></span><br /><br />
+              <span>CREATE CART - <code>POST /carts</code></span><br /><br />
 
-                <div>
-                  <button
-                    class="btn btn-primary btn-lg"
-                    onclick="getProducts()"
-                  >
-                    Search
-                  </button>
-                </div>
+              <div class="mb-3">
+                <label for="keyword" class="form-label">Search Keyword</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="keyword"
+                  placeholder="Enter the search term"
+                />
               </div>
+
+              <div class="form-check mb-3">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="includeFacets"
+                />
+                <label class="form-check-label" for="includeFacets">
+                  Include Facets
+                </label>
+              </div>
+
+              <button class="btn btn-primary btn-lg" onclick="getProducts()">
+                Search
+              </button>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Accordion: Add Items to Cart -->
       <div class="accordion" id="productsAccordion">
         <div class="accordion-item">
           <h2 class="accordion-header" id="task1">
             <button
-              class="accordion-button"
+              class="accordion-button collapsed"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#collapse1"
-              aria-expanded="true"
+              aria-expanded="false"
               aria-controls="collapse1"
             >
               A customer wants to add items to their cart.
@@ -80,31 +74,24 @@
           </h2>
           <div
             id="collapse1"
-            class="accordion-collapse show"
+            class="accordion-collapse collapse"
             aria-labelledby="task1"
             data-bs-parent="#productsAccordion"
           >
             <div class="accordion-body">
-              <span
-                >FETCH CART - <code>GET /in-store/storeKey/carts/id</code></span
-              ><br /><br />
-              <span
-                >UPDATE CART -
-                <code>POST /in-store/storeKey/carts/id</code></span
-              ><br /><br />
-              <div class="d-flex gap-3">
-                <button class="btn btn-primary" onclick="getCart()">
-                  Get Cart
-                </button>
-                <button class="btn btn-warning" onclick="clearCart()">
-                  Reset Cart
-                </button>
+              <span>FETCH CART - <code>GET /in-store/{storeKey}/carts/{id}</code></span><br /><br />
+              <span>UPDATE CART - <code>POST /in-store/{storeKey}/carts/{id}</code></span><br /><br />
+              <div class="d-flex gap-3 flex-wrap">
+                <button class="btn btn-primary" onclick="getCart()">Get Cart</button>
+                <button class="btn btn-warning" onclick="clearCart()">Reset Cart</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <br />
+
+      <!-- JSON Response + Results -->
+            <br />
 
       <main class="d-flex flex-nowrap">
         <div class="row h-100 w-100">
@@ -122,9 +109,11 @@
           </div>
         </div>
       </main>
+
     </div>
   </div>
 </div>
+
 
 <script>
   function clearCart() {
