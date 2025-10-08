@@ -93,22 +93,21 @@
       <!-- JSON Response + Results -->
             <br />
 
-      <main class="d-flex flex-nowrap">
-        <div class="row h-100 w-100">
-          <div class="d-flex col-md-12">
-            <div class="container col-md-8">
-              <pre
-                id="json-response"
-                class="mt-1 flex-fill d-flex overflow-auto"
-              ></pre>
-            </div>
-            <div class="container col-md-4">
-              <div id="results"></div>
-              <div id="facets"></div>
-            </div>
+      <main class="container-fluid py-3">
+        <div class="row h-100">
+          <!-- Left Column (8/12) -->
+          <div class="col-md-8 d-flex flex-column">
+            <pre id="json-response" class="flex-fill overflow-auto p-3 border rounded"></pre>
+          </div>
+
+          <!-- Right Column (4/12) -->
+          <div class="col-md-4">
+            <div id="results" class="mb-3"></div>
+            <div id="facets"></div>
           </div>
         </div>
       </main>
+
 
     </div>
   </div>
