@@ -40,32 +40,15 @@
           </div>
         </div>
 
+
         <!-- Task 3 -->
         <div class="accordion-item">
           <h2 class="accordion-header" id="task3">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
-              3. A customer should only see shipping methods that ship to their location.
-            </button>
-          </h2>
-          <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="task3" data-bs-parent="#shippingMethodsAccordion">
-            <div class="accordion-body">
-              <span><code>GET /shipping-methods?countryCode=...</code></span>
-              <div class="input-group mt-2">
-                <input type="text" class="form-control" id="countryCode" placeholder="Enter two-digit country code..." />
-                <button class="btn btn-primary" onclick="getShippingMethodsByCountry()">Get Shipping Options</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Task 4 -->
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="task4">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
               4. A customer can check if a shipping method exists.
             </button>
           </h2>
-          <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="task4" data-bs-parent="#shippingMethodsAccordion">
+          <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="task3" data-bs-parent="#shippingMethodsAccordion">
             <div class="accordion-body">
               <span><code>HEAD /shipping-methods/{key}</code></span>
               <div class="input-group mt-2">
