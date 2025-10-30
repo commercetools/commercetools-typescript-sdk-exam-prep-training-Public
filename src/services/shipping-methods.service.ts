@@ -25,10 +25,9 @@ export class ShippingMethodsService {
       .then((response) => response.body);
   }
 
-  getShippingMethodByKey(key: string): Promise<ShippingMethod> {
+  getShippingMethodByKey(key: string): Promise<any> {
     return this.apiRoot
       .shippingMethods()
-      .withKey({ key })
       .get({
         queryArgs: { expand: 'zoneRates[*].zone' },
       })
@@ -45,20 +44,8 @@ export class ShippingMethodsService {
   }
 
   checkShippingMethodExists(key: string): Promise<void> {
-    return this.apiRoot
-      .shippingMethods()
-      .withKey({ key })
-      .head()
-      .execute()
-      .then((response) => response.body)
-      .catch((error) => {
-        if (isSDKError(error) && error.statusCode === 404) {
-          throw new ObjectNotFoundException(
-            `Shipping method with key '${key}' does not exist`,
-          );
-        }
-        throw error;
-      });
+    // TODO: implement check logic
+    return Promise.resolve();
   }
 
   getShippingMethodsByLocation(

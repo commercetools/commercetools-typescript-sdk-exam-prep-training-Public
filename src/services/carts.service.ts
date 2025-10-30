@@ -34,13 +34,8 @@ export class CartsService {
       currency,
       country,
       deleteDaysAfterLastModification: 30,
-      lineItems: [
-        {
-          sku,
-          quantity: quantity ?? 1,
-        },
-      ],
     };
+    // TODO: add initial line item
 
     return this.apiRoot
       .inStoreKeyWithStoreKeyValue({ storeKey })
@@ -62,8 +57,7 @@ export class CartsService {
       distributionChannelKey,
     } = lineItemsDetails;
 
-    const cart = await this.getCartById({ id, storeKey });
-    const cartVersion = cart.version;
+    // TODO: Fetch latest cart version before update
 
     const cartUpdateActions: CartUpdateAction[] = [];
 
@@ -87,21 +81,6 @@ export class CartsService {
     
     cartUpdateActions.push(addLineItemUpdateAction);
     
-    // // TODO: Add custom fields as needed
-    // let earnedPoints = await this.calculateBonusPoints(cart.totalPrice.centAmount);
-
-    // const addCustomLineItemUpdateAction: CartAddCustomLineItemAction = {
-    //   action: 'addCustomLineItem',
-    //   name: { 'en-US': 'Bonus Points: ' + earnedPoints },
-    //   money: {
-    //     centAmount: 0,
-    //     currencyCode: 'EUR',
-    //   },
-    //   slug: 'bonus-points-custom-line-item',
-    //   quantity: 1,
-    // };
-
-    // cartUpdateActions.push(addCustomLineItemUpdateAction);
 
     return this.apiRoot
       .inStoreKeyWithStoreKeyValue({ storeKey })
@@ -109,7 +88,7 @@ export class CartsService {
       .withId({ ID: id })
       .post({
         body: {
-          version: cartVersion,
+          version: 1,
           actions: cartUpdateActions,
         },
       })
@@ -137,13 +116,14 @@ export class CartsService {
         email,
       },
     };
-
+    
+    cartUpdateActions.push(setShippingAddressUpdateAction);
+    
     const setCustomerEmailUpdateAction: CartSetCustomerEmailAction = {
       action: 'setCustomerEmail',
       email,
     };
 
-    cartUpdateActions.push(setShippingAddressUpdateAction);
     cartUpdateActions.push(setCustomerEmailUpdateAction);
 
     return this.apiRoot

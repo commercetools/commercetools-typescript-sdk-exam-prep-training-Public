@@ -57,15 +57,7 @@ export class ProductsService {
       }
 
       if (keyword) {
-        fullTextQueryExpression = {
-          fullText: {
-            field: 'name',
-            language: locale ?? 'en-US',
-            value: keyword,
-            mustMatch: 'any',
-            caseInsensitive: true,
-          },
-        };
+        // TODO: handle keyword search
       }
 
       if (storeQueryExpression && fullTextQueryExpression) {

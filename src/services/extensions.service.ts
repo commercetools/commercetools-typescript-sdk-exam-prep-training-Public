@@ -57,7 +57,7 @@ export class ExtensionsService {
         'en-US': 'TT Loyalty Scheme',
         'en-GB': 'TT Loyalty Scheme',
       },
-      resourceTypeIds: ['customer','order'],
+      resourceTypeIds: ['order'], // TODO: confirm resource types
       fieldDefinitions: [
         {
           type: {

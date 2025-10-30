@@ -60,7 +60,7 @@ export class CustomersService {
         typeId: 'type',
       },
       fields: {
-        points
+        points: 0 // TODO: set actual points
       },
     };
 
