@@ -6,7 +6,6 @@ import {
   OrderFromCartDraft,
 } from '@commercetools/platform-sdk';
 import { API_ROOT } from 'src/commercetools/api-client.module';
-import { CustomersService } from './customers.service';
 
 const orderNamePrefix = 'TT';
 
@@ -14,7 +13,6 @@ const orderNamePrefix = 'TT';
 export class OrdersService {
   constructor(
     @Inject(API_ROOT) private readonly apiRoot: ByProjectKeyRequestBuilder,
-    private readonly customersService: CustomersService,
   ) {}
 
   createOrder(orderDetails: OrderCreateDto): Promise<Order> {
@@ -38,6 +36,4 @@ export class OrdersService {
       .execute()
       .then((response) => response.body);
   }
-
-  
 }

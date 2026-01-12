@@ -25,6 +25,7 @@ export class ShippingMethodsService {
       .then((response) => response.body);
   }
 
+  // TODO: Fix the logic to return a shipping method by key
   getShippingMethodByKey(key: string): Promise<any> {
     return this.apiRoot
       .shippingMethods()
@@ -44,7 +45,7 @@ export class ShippingMethodsService {
   }
 
   checkShippingMethodExists(key: string): Promise<void> {
-    // TODO: implement check logic
+    // TODO: implement the logic to check the existance of a shipping method by key
     return Promise.resolve();
   }
 
