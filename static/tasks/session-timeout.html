@@ -65,8 +65,8 @@
 
 <script>
   function logout() {
-    if (localStorage.getItem('customerId')) {
-      localStorage.removeItem('customerId');
+    if (localStorage.getItem('customerKey')) {
+      localStorage.removeItem('customerKey');
       localStorage.removeItem('cartId');
     }
   }
